@@ -5,6 +5,7 @@ ruby '2.4.5'
 
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.4'
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'rails-controller-testing'
 gem 'devise'
 
