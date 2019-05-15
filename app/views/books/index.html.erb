@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Title</th>
       <th>Description</th>
       <th>Rating</th>
@@ -16,10 +17,11 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
+        <td><%= image_tag book.image.url, style: "height: 150px;" %></td>
         <td><%= book.title %></td>
         <td><%= book.description %></td>
         <td><%= book.rating %></td>
-        <td><%= book.author %></td>
+        <td><%= book.author.first_and_last_name %></td>
         <td><%= link_to 'Show', book %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>

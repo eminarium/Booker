@@ -17,7 +17,12 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @book.author %>
+  <%= @book.author.first_and_last_name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @book.image.url, style: "width: 300px;" %>
 </p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

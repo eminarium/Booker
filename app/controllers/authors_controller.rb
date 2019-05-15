@@ -1,5 +1,6 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   # GET /authors
   # GET /authors.json
@@ -14,7 +15,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/new
   def new
-    @author = Author.new
+    @author = current_user.authors.build
   end
 
   # GET /authors/1/edit
@@ -24,7 +25,7 @@ class AuthorsController < ApplicationController
   # POST /authors
   # POST /authors.json
   def create
-    @author = Author.new(author_params)
+    @author = current_user.authors.build(author_params)
 
     respond_to do |format|
       if @author.save
