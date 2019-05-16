@@ -1,6 +1,16 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal">BOOKER</h5>
+  <h5 class="my-0 mr-md-auto font-weight-normal"> <%= link_to "BOOKER", root_path, style: "text-decoration:none" %> </h5>
   <nav class="my-2 my-md-0 mr-md-3">
+
+        <%= link_to authors_path, class: "btn btn-primary" do %>
+            <i class="fa fa-pencil"></i> &nbsp; Authors 
+        <% end %>
+        <%= link_to books_path, class: "btn btn-primary" do %>
+            <i class="fa fa-book"></i> &nbsp; Books 
+        <% end %>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
     <% if user_signed_in? %>
         <%= link_to new_author_path, class: "btn btn-outline-secondary" do %>
             <i class="fa fa-pencil"></i> &nbsp; New Author 
@@ -13,7 +23,7 @@
         <%= link_to edit_user_registration_path, class: "btn btn-outline-secondary" do %>
             <i class="fa fa-user"></i> &nbsp; Account 
         <% end %>
-
+        &nbsp;&nbsp;&nbsp;
         <%= link_to destroy_user_session_path, method: :delete, class: "btn btn-outline-primary" do %>
             <i class="fa fa-sign-out"></i> &nbsp; Sign Out 
         <% end %>
