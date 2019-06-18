@@ -38,7 +38,9 @@
                     <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
                   <% end %>
                 </div>
-                <small class="text-muted"> <%= book.rating %> </small>
+                <small class="text-muted"> 
+                  <div class="star-rating" data-score="<%= book.rating %>" ></div>
+                </small>
               </div>
             </div>
           </div>
@@ -46,3 +48,13 @@
 
   <% end %>
 </div>
+
+<script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

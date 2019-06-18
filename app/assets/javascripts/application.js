@@ -16,5 +16,7 @@
 //= require popper
 //= require activestorage
 //= require bootstrap
+//= require turbolinks
+//= require jquery.raty
 
 

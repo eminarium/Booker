@@ -35,11 +35,16 @@
 
   <div class="form-group row">
     <%= form.label "Rating", class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-4">
-      <%= form.number_field :rating, class: "form-control", id: "rating", placeholder: "Rating" %>
-    </div>
+    <div class="col-sm-4" id='star-rating'></div>
   </div>
 
   <button type="submit" class="btn btn-primary">Add Author</button>
 
 <% end %>
+
+<script>
+ $('#star-rating').raty({
+  path: '/assets/',
+  scoreName: 'author[rating]'
+ });
+</script>

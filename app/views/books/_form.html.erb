@@ -11,33 +11,46 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-group row">
+    <%= form.label "Title", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.text_field :title, class: "form-control", id: "title", placeholder: "Title" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="form-group row">
+    <%= form.label "Description", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.text_area :description, class: "form-control", id: "description", placeholder: "Description" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
+  <div class="form-group row">
+    <%= form.label "Rating", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4" id='star-rating'></div>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
+  <div class="form-group row">
+    <%= form.label "Image", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.file_field :image, class: "form-control", id: "image", placeholder: "Image" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :author_id %>
-    <%#= form.text_field :author_id %>
-    <%= form.collection_select :author_id, Author.all, :id, :first_name, class: "form-control" %>
+  <div class="form-group row">
+    <%= form.label "Author", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.collection_select :author_id, Author.all, :id, :first_and_last_name, class: "form-control", id: "image", placeholder: "Author" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <button type="submit" class="btn btn-primary">Add Book</button>
+
 <% end %>
+
+<script>
+ $('#star-rating').raty({
+  path: '/assets/',
+  scoreName: 'author[rating]'
+ });
+</script>

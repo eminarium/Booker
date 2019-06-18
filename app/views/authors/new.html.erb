@@ -1,5 +1,11 @@
-<h2>Add New Author</h2> <br>
+<div class="card">
 
-<%= render 'form', author: @author %>
+    <div class="card-header"><h3>Add New Author</h3></div>
 
-<%= link_to 'Back', authors_path, class: "btn btn-outline-warning" %>
+    <div class="card-body">
+
+        <%= render 'form', author: @author %>
+
+        <%= link_to 'Back', authors_path, class: "btn btn-outline-warning" %>
+    </div>
+</div>
