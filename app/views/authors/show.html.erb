@@ -1,24 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @author.first_name %>
-</p>
+<div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal"> <%= @author.first_name+" "+@author.last_name %> </h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted"> <%= @author.rating %> </small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li> <%= @author.about %> </li>
+          </ul>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @author.last_name %>
-</p>
+            <% if user_signed_in? %>
+              <%= link_to "Edit", edit_author_path(@author), class: "btn btn-outline-warning" %>
+            <% end %>
+            <%= link_to "Back", authors_path, class: "btn btn-outline-primary" %>
 
-<p>
-  <strong>About:</strong>
-  <%= @author.about %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @author.rating %>
-</p>
-
-<%= link_to 'Edit', edit_author_path(@author) %> |
-<%= link_to 'Back', authors_path %>
+        </div>
+      </div>
+</div>

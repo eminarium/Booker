@@ -11,27 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="form-group row">
+    <%= form.label "First Name", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.text_field :first_name, class: "form-control", id: "first_name", placeholder: "First Name" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="form-group row">
+    <%= form.label "Last Name", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.text_field :last_name, class: "form-control", id: "last_name", placeholder: "Last Name" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :about %>
-    <%= form.text_area :about %>
+  <div class="form-group row">
+    <%= form.label "About Author", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.text_area :about, class: "form-control", id: "about", placeholder: "About Author" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating %>
+
+  <div class="form-group row">
+    <%= form.label "Rating", class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.number_field :rating, class: "form-control", id: "rating", placeholder: "Rating" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <button type="submit" class="btn btn-primary">Add Author</button>
+
 <% end %>

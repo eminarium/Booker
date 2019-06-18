@@ -16,7 +16,7 @@
 
       <div class="card mb-4 shadow-sm">
         <div class="card-header">
-          <h4 class="my-0 font-weight-normal"> <%= author.first_name+" "+author.last_name %> </h4>
+          <h4 class="my-0 font-weight-normal"> <%= link_to author.first_name+" "+author.last_name, author %> </h4>
         </div>
         <div class="card-body">
           <h1 class="card-title pricing-card-title"><small class="text-muted"> <%= author.rating %> </small></h1>
