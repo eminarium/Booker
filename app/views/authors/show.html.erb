@@ -15,27 +15,33 @@
             <li> <%= @author.about %> </li>
           </ul>
 
-            <table class="table table-hover" style="width: 600px">
+            <% if @author.books.count > 0 %>
 
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Rating</th>
-                  <th>Description</th>
-                </tr>
-              </thead>
+                <table class="table table-hover" style="width: 600px">
 
-              <% @author.books.each do |book| %>
-                <tbody>
-                  <tr>
-                    <td> <%= book.title %> </td>
-                    <td> <div class="star-rating" data-score="<%= book.rating %>" ></div> </td>
-                    <td> <%= book.description %> </td>
-                  </tr>
-                </tbody>
-              <% end %>
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Rating</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+
+                  <% @author.books.each do |book| %>
+                    <tbody>
+                      <tr>
+                        <td> <%= book.title %> </td>
+                        <td> <div class="star-rating" data-score="<%= book.rating %>" ></div> </td>
+                        <td> <%= book.description %> </td>
+                      </tr>
+                    </tbody>
+                  <% end %>
+                  
+                </table>
               
-            </table>
+            <% else %>
+              <h4>There are no books for this author ...</h4>
+            <% end %>
 
             <% if user_signed_in? %>
               <%= link_to "Edit", edit_author_path(@author), class: "btn btn-outline-warning" %>
