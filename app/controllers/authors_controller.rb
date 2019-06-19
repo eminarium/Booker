@@ -5,7 +5,11 @@ class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.json
   def index
-    @authors = Author.all
+    if params[:hint].blank?
+      @authors = Author.all
+    else
+      @authors = Author.where("first_name LIKE ? OR last_name LIKE ?", "%#{params[:hint]}%", "%#{params[:hint]}%")
+    end
   end
 
   # GET /authors/1

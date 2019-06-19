@@ -5,7 +5,11 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    if params[:hint].blank?
+      @books = Book.all
+    else
+      @books = Book.where("title LIKE ?", "%#{params[:hint]}%")
+    end
   end
 
   # GET /books/1
