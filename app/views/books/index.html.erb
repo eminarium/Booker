@@ -31,7 +31,7 @@
                   </tbody>
                 </table>
 
-              <p class="card-text">T <%= book.description %> </p>
+              <p class="card-text"> <%= book.description %> </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                   <%= link_to book do %>
@@ -39,7 +39,11 @@
                   <% end %>
                 </div>
                 <small class="text-muted"> 
-                  <div class="star-rating" data-score="<%= book.rating %>" ></div>
+                  <% if book.reviews.blank? %>
+                    <h6> No reviews </h6>
+                  <% else %>
+                    <div class="star-rating" data-score="<%= book.reviews.average(:rating).round(2) %>" ></div>
+                  <% end %>
                 </small>
               </div>
             </div>

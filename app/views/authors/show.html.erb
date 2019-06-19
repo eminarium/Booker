@@ -31,7 +31,13 @@
                     <tbody>
                       <tr>
                         <td> <%= book.title %> </td>
-                        <td> <div class="star-rating" data-score="<%= book.rating %>" ></div> </td>
+                        <td> 
+                          <% if book.reviews.blank? %>
+                            <h6>No reviews yet</h6>
+                          <% else %>
+                            <div class="star-rating" data-score="<%= book.reviews.average(:rating).round(2) %>" ></div> 
+                          <% end %>
+                        </td>
                         <td> <%= book.description %> </td>
                       </tr>
                     </tbody>

@@ -1,5 +1,12 @@
-<h1>New Review</h1>
+<div class="card">
 
-<%= render 'form', review: @review %>
+    <div class="card-header"><h3>Add New Review</h3></div>
 
-<%= link_to 'Back', reviews_path %>
+    <div class="card-body">
+
+        <%= render 'form', review: @review %>
+
+        <%= link_to 'Back', book_path(@book) %>
+        
+    </div>
+</div>

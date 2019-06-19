@@ -1,16 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
-  # GET /reviews
-  # GET /reviews.json
-  def index
-    @reviews = Review.all
-  end
-
-  # GET /reviews/1
-  # GET /reviews/1.json
-  def show
-  end
+  before_action :set_book
+  before_action :authenticate_user!
 
   # GET /reviews/new
   def new
@@ -25,11 +16,13 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
+    @review.user_id = current_user.id
+    @review.book_id = @book.id
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
+        format.html { redirect_to @book, notice: 'Review was successfully created.' }
+        format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
@@ -67,8 +60,12 @@ class ReviewsController < ApplicationController
       @review = Review.find(params[:id])
     end
 
+    def set_book
+      @book = Book.find(params[:book_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:review_note, :book_id)
+      params.require(:review).permit(:review_note, :rating, :book_id, :user_id)
     end
 end

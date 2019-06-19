@@ -1,6 +1,13 @@
-<h1>Editing Review</h1>
+<div class="card">
 
-<%= render 'form', review: @review %>
+    <div class="card-header"><h3>Edit this Review</h3></div>
 
-<%= link_to 'Show', @review %> |
-<%= link_to 'Back', reviews_path %>
+    <div class="card-body">
+
+        <%= render 'form', review: @review %>
+
+        <%= link_to 'Show', "#" %> 
+        <%= link_to 'Back', book_path(@book) %>
+
+    </div>
+</div>
