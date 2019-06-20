@@ -30,36 +30,38 @@
     </div>
 
     <% if user_signed_in? %>
+      <%= link_to "Edit", edit_book_path(@book), class: "btn btn-outline-warning" %>
+    <% end %>
+    <%= link_to "Back", books_path, class: "btn btn-outline-primary" %>
+
+    <br>
+    <hr>
+    <% if user_signed_in? %>
       <%= link_to "New Book Review", new_book_review_path(@book), class: "btn btn-outline-info" %>
     <% end %>
-
+    <br><br>
     <% if @book.reviews.blank?  %>
       <h3>No reviews yet, be the first one to add review ...</h3>
     <% else %>
-      <% @book.reviews.each do |review| %>
-        <table class="table table-hover" style="width: 600px">
-          <thead>
-            <tr>
-              <th>Note</th>
-              <th>Rating</th>
-              <th>User</th>
-            </tr>
-          </thead>
-          <tbody>
+      <table class="table table-hover" style="width: 600px">
+        <thead>
+          <tr>
+            <th>Note</th>
+            <th>Rating</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @book.reviews.each do |review| %>
             <tr>
               <td> <%= review.review_note %> </td>
               <td> <div class="star-rating" data-score="<%= review.rating %>" ></div> </td>
               <td> <%= review.user.email %> </td>
             </tr>
-          </tbody>
-        </table>
-      <% end %>
+          <% end %>
+        </tbody>
+      </table>
     <% end %>
-
-    <% if user_signed_in? %>
-      <%= link_to "Edit", edit_book_path(@book), class: "btn btn-outline-warning" %>
-    <% end %>
-    <%= link_to "Back", books_path, class: "btn btn-outline-primary" %>
 
 <script>
   $('.star-rating').raty({
