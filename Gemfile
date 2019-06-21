@@ -64,6 +64,7 @@ group :test do
   gem 'webdrivers', '~> 3.0'
   gem 'selenium-webdriver'
   gem 'rspec-rails'
+  gem "shoulda-matchers"
   # Easy installation and use of chromedriver to run system tests with Chrome
   #gem 'chromedriver-helper'
 end
