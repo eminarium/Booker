@@ -3,17 +3,14 @@ require 'rails_helper'
 RSpec.feature "User signs in" do
     context "User enters valid email and password" do
         scenario "He sees books list page" do
-            user_email = "merdan.durdiyev@gmail.com"
-            user_pass = "testpassword"
-
             user = create(:user)
 
             visit root_path
 
             click_on "signInLink"
 
-            fill_in "Email", with: user_email
-            fill_in "Password", with: user_pass
+            fill_in "Email", with: user.email
+            fill_in "Password", with: user.password
 
             click_button "Log In"
 
@@ -23,16 +20,13 @@ RSpec.feature "User signs in" do
 
     context "User leaves email blank" do
         scenario "User sees 'Email left blank' error message" do
-            user_email = "merdan.durdiyev@gmail.com"
-            user_pass = "testpassword"
-
             user = create(:user)
 
             visit root_path
 
             click_on "signInLink"
 
-            fill_in "Password", with: user_pass
+            fill_in "Password", with: user.password
 
             click_button "Log In"
 
@@ -42,16 +36,13 @@ RSpec.feature "User signs in" do
 
     context "User leaves password blank" do
         scenario "User sees 'Password left blank' error message" do
-            user_email = "merdan.durdiyev@gmail.com"
-            user_pass = "testpassword"
-
             user = create(:user)
 
             visit root_path
 
             click_on "signInLink"
 
-            fill_in "Email", with: user_email
+            fill_in "Email", with: user.email
 
             click_button "Log In"
 

@@ -3,9 +3,6 @@ require 'rails_helper'
 RSpec.feature "User adds new book" do
     context "User enter full book information" do
         scenario "they see newly entered book details" do
-            user_email = "merdan.durdiyev@gmail.com"
-            user_pass = "testpassword"
-
             user = create(:user)
             author = create(:author)
 
@@ -13,8 +10,8 @@ RSpec.feature "User adds new book" do
 
             click_on "signInLink"
 
-            fill_in "Email", with: user_email
-            fill_in "Password", with: user_pass
+            fill_in "Email", with: user.email
+            fill_in "Password", with: user.password
 
             click_button "Log In"
 
