@@ -1,4 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+test_book:
+  title: "History of Ada"
+  description: "Very good book"
+  author: 1
 
 one:
   title: MyString

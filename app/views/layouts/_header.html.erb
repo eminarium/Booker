@@ -22,21 +22,21 @@
 
   <nav class="my-2 my-md-0 mr-md-3">
 
-        <%= link_to authors_path, class: "btn btn-primary" do %>
+        <%= link_to authors_path, class: "btn btn-primary", id: "authorsPageLink" do %>
             <i class="fa fa-pencil"></i> &nbsp; Authors 
         <% end %>
-        <%= link_to books_path, class: "btn btn-primary" do %>
+        <%= link_to books_path, class: "btn btn-primary", id: "booksPageLink" do %>
             <i class="fa fa-book"></i> &nbsp; Books 
         <% end %>
 
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     <% if user_signed_in? %>
-        <%= link_to new_author_path, class: "btn btn-outline-secondary" do %>
+        <%= link_to new_author_path, class: "btn btn-outline-secondary", id: "addNewAuthorLink" do %>
             <i class="fa fa-pencil"></i> &nbsp; New Author 
         <% end %>
 
-        <%= link_to new_book_path, class: "btn btn-outline-secondary" do %>
+        <%= link_to new_book_path, class: "btn btn-outline-secondary", id: "addNewBookLink" do %>
             <i class="fa fa-book"></i> &nbsp; New Book 
         <% end %>
 
@@ -48,8 +48,8 @@
             <i class="fa fa-sign-out"></i> &nbsp; Sign Out 
         <% end %>
     <% else %>
-        <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-info" %>
-        <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-info" %>
+        <%= link_to "Register", new_user_registration_path, class: "btn btn-outline-info", id: "registerLink" %>
+        <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-info", id: "signInLink" %>
     <% end %>
   </nav>
 </div>
